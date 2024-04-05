@@ -32,4 +32,5 @@ export interface CarPropType {
     startingBid: number;
     favourite: boolean;
     details: CarDetails;
+    id: number;
 }

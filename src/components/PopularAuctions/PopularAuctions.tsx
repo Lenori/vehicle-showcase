@@ -15,8 +15,10 @@ export default function PopularAuctions({ count }: PopularAuctionsPropTypes) {
 
     return (
         <S.MainContainer>
+            <S.Title>Most popular car auction deals</S.Title>
+
             {popularItems.map((car) => (
-                <p key={car.model}>
+                <p key={car.id}>
                     {car.make} {car.model}
                 </p>
             ))}
