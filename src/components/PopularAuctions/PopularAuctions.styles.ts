@@ -5,6 +5,7 @@ export const MainContainer = styled.section`
     align-items: center;
     flex-direction: column;
     width: 100%;
+    padding: var(--spacing-m);
 `;
 
 export const Title = styled.h2`

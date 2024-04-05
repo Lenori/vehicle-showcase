@@ -30,6 +30,10 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
+    section {
+        box-sizing: border-box;
+    }
+
     button {
         cursor: pointer;        
         transition: filter 0.3s;        

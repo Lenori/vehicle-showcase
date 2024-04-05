@@ -1,6 +1,6 @@
 import React from 'react';
 
-import defaultcarimg from 'image/default-car-picture.jpg';
+import defaultcarimg from 'images/default-car-picture.jpg';
 
 import valueToEuro from 'utils/valueToEuro';
 import { countDown } from 'utils/countDown';
