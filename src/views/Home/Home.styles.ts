@@ -2,6 +2,6 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.section`
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
 `;
