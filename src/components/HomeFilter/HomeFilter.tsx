@@ -2,31 +2,73 @@ import React from 'react';
 
 import { FaSearch } from 'react-icons/fa';
 
+import { useFilters } from 'context/FiltersContext';
+
+import { brandArrayBuilder, modelArrayBuilder } from 'utils/arrayBuilder';
+import filterUrlBuilder from 'utils/filterUrlBuilder';
+
 import FilterSelector from 'components/FilterInputs/FilterSelector/FilterSelector';
+import FilterRange from 'components/FilterInputs/FilterRange/FilterRange';
 
 import Button from 'components/Button/Button';
 
 import * as S from './HomeFilter.styles';
 
 export default function HomeFilter() {
+    const filters = useFilters();
+
     return (
         <S.MainContainer>
             <S.FilterContainer>
-                <p>Make</p>
-                <FilterSelector placeholder="e.g. Ford" />
+                <S.FilterTitle>Make</S.FilterTitle>
+                <FilterSelector
+                    data={brandArrayBuilder({
+                        brands: filters.brands,
+                        make: filters.data.make,
+                        model: filters.data.model,
+                    })}
+                    placeholder="e.g. Ford"
+                    saveFilter={(value) =>
+                        filters.setFilters({ ...filters.data, make: value })
+                    }
+                />
             </S.FilterContainer>
 
             <S.FilterContainer>
-                <p>Model</p>
-                <FilterSelector placeholder="e.g. Focus" />
+                <S.FilterTitle>Model</S.FilterTitle>
+                <FilterSelector
+                    data={modelArrayBuilder({
+                        brands: filters.brands,
+                        make: filters.data.make,
+                    })}
+                    placeholder="e.g. Focus"
+                    saveFilter={(value) =>
+                        filters.setFilters({ ...filters.data, model: value })
+                    }
+                />
             </S.FilterContainer>
 
             <S.FilterContainer>
-                <p>Starting bid</p>
-                <FilterSelector placeholder="e.g. 10000" />
+                <S.FilterTitle>Bid range</S.FilterTitle>
+                <FilterRange
+                    saveFilter={({ minimumBid, maximumBid }) =>
+                        filters.setFilters({
+                            ...filters.data,
+                            minimumBid,
+                            maximumBid,
+                        })
+                    }
+                />
             </S.FilterContainer>
 
-            <Button Icon={FaSearch} text="Search" />
+            <Button
+                link={filterUrlBuilder({
+                    base: 'showcase',
+                    filters: filters.data,
+                })}
+                Icon={FaSearch}
+                text="Search"
+            />
         </S.MainContainer>
     );
 }

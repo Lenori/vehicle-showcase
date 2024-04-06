@@ -1,0 +1,63 @@
+[
+    {
+        "make": "Toyota",
+        "models": [
+            "C-HR",
+            "Corolla"
+        ]
+    },
+    {
+        "make": "Ford",
+        "models": [
+            "Focus",
+            "Focus C-Max",
+            "Fiesta"
+        ]
+    },
+    {
+        "make": "Volkswagen",
+        "models": [
+            "Polo",
+            "Golf",
+            "Passat"
+        ]
+    },
+    {
+        "make": "Audi",
+        "models": [
+            "A3",
+            "A4"
+        ]
+    },
+    {
+        "make": "Volvo",
+        "models": [
+            "V40",
+            "C40",
+            "C30"
+        ]
+    },
+    {
+        "make": "Citroen",
+        "models": [
+            "C5 Aircross",
+            "C3 Aircross",
+            "C3 Origin"
+        ]
+    },
+    {
+        "make": "BMW",
+        "models": [
+            "1 Series",
+            "3 Series"
+        ]
+    },
+    {
+        "make": "Mercedes-Benz",
+        "models": [
+            "A-Class Saloon",
+            "A-Class Hatchback",
+            "B-Class"
+        ]
+    }
+]

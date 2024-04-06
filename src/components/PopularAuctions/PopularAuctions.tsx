@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useCars } from 'context/CarsContext';
+
+import { CarPropType } from 'types/cars.types';
 
 import randomCarSlicer from 'utils/randomCarSlicer';
 
@@ -13,7 +15,11 @@ import { PopularAuctionsPropTypes } from './PopularAuctions.types';
 export default function PopularAuctions({ count }: PopularAuctionsPropTypes) {
     const cars = useCars();
 
-    const popularItems = randomCarSlicer(cars.data, count);
+    const [popularItems, setPopularItems] = useState<CarPropType[]>([]);
+
+    useEffect(() => {
+        setPopularItems(randomCarSlicer(cars.data, count));
+    }, []);
 
     return (
         <S.MainContainer>

@@ -17,11 +17,11 @@ export const FilterContainer = styled.section`
     align-items: flex-start;
     flex-direction: column;
     margin-right: var(--spacing-m);
+`;
 
-    p {
-        text-transform: uppercase;
-        margin: 0 0 var(--spacing-s);
-        font-weight: bold;
-        font-size: 1.2rem;
-    }
+export const FilterTitle = styled.p`
+    text-transform: uppercase;
+    margin: 0 0 var(--spacing-s);
+    font-weight: bold;
+    font-size: 1.2rem;
 `;
