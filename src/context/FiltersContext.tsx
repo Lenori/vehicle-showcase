@@ -23,6 +23,9 @@ export function FiltersProvider({ children }: { children: React.ReactNode }) {
         minimumBid: Number(queryParams.get('minimumBid')) || null,
         maximumBid: Number(queryParams.get('maximumBid')) || null,
         favourites: Boolean(queryParams.get('favourites')),
+        itemsPerPage: Number(queryParams.get('itemsPerPage')) || 5,
+        page: Number(queryParams.get('page')) || 1,
+        orderBy: queryParams.get('orderBy') || 'startingBid',
     });
 
     const brands: BrandsPropType[] = brandsData;

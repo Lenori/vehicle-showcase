@@ -6,6 +6,20 @@ interface FilterCarsPropTypes {
     cars: CarPropType[];
 }
 
+interface SortByPropTypes {
+    data: CarPropType[];
+    property: string;
+}
+
+function sortBy({ data, property }: SortByPropTypes) {
+    return data.sort((a, b) => {
+        const aVal = a[property];
+        const bVal = b[property];
+
+        return aVal === bVal ? 0 : aVal < bVal ? -1 : 1;
+    });
+}
+
 export default function filterCars({
     filters,
     cars,
@@ -35,6 +49,11 @@ export default function filterCars({
             (car) => car.startingBid <= filters.maximumBid,
         );
     }
+
+    carsArray = sortBy({
+        data: carsArray,
+        property: filters.orderBy,
+    });
 
     return carsArray;
 }

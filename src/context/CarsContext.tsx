@@ -19,7 +19,12 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
     const filters = useFilters();
 
     const [cars, setCars] = useState<CarPropType[]>(vehiclesData);
-    const [filteredCars, setFilteredCars] = useState<CarPropType[]>(cars);
+    const [filteredCars, setFilteredCars] = useState<CarPropType[]>(
+        filterCars({
+            filters: filters.data,
+            cars,
+        }),
+    );
 
     useEffect(() => {
         setFilteredCars(

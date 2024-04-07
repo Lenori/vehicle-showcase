@@ -4,6 +4,9 @@ export interface FiltersPropType {
     minimumBid: null | number;
     maximumBid: null | number;
     favourites: boolean;
+    itemsPerPage: null | number;
+    page: null | number;
+    orderBy: null | string;
 }
 
 export interface BrandsPropType {

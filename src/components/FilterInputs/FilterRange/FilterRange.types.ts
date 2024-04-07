@@ -4,6 +4,7 @@ interface BidPropTypes {
 }
 
 export interface FilterRangePropTypes {
+    id: string;
     initialValue?: BidPropTypes;
     saveFilter: ({ minimumBid, maximumBid }: BidPropTypes) => void;
 }

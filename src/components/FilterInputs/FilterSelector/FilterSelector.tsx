@@ -5,6 +5,7 @@ import * as S from './FilterSelector.styles';
 import { FilterSelectorPropTypes } from './FilterSelector.types';
 
 export default function FilterSelector({
+    id,
     placeholder,
     data,
     initialValue,
@@ -42,6 +43,7 @@ export default function FilterSelector({
     return (
         <S.MainContainer>
             <S.MainInput
+                id={id}
                 type="text"
                 value={inputValue}
                 onChange={(e) => editInput(e.target.value)}

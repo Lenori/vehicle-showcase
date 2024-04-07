@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useCars } from 'context/CarsContext';
 
+import ListControls from 'components/ListControls/ListControls';
 import CarCard from 'components/CarCard/CarCard';
 
 import * as S from './CarList.styles';
@@ -11,6 +12,8 @@ export default function CarList() {
 
     return (
         <S.MainContainer>
+            <ListControls />
+
             {cars.data.map((car) => (
                 <CarCard wide key={car.id} car={car} />
             ))}

@@ -22,6 +22,7 @@ export default function HomeFilter() {
             <S.FilterContainer>
                 <S.FilterTitle>Make</S.FilterTitle>
                 <FilterSelector
+                    id="make-selector"
                     data={brandArrayBuilder({
                         brands: filters.brands,
                         make: filters.data.make,
@@ -37,6 +38,7 @@ export default function HomeFilter() {
             <S.FilterContainer>
                 <S.FilterTitle>Model</S.FilterTitle>
                 <FilterSelector
+                    id="model-selector"
                     data={modelArrayBuilder({
                         brands: filters.brands,
                         make: filters.data.make,
@@ -51,6 +53,7 @@ export default function HomeFilter() {
             <S.FilterContainer>
                 <S.FilterTitle>Bid range</S.FilterTitle>
                 <FilterRange
+                    id="bid-range"
                     saveFilter={({ minimumBid, maximumBid }) =>
                         filters.setFilters({
                             ...filters.data,

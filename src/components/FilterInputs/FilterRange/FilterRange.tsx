@@ -5,6 +5,7 @@ import * as S from './FilterRange.styles';
 import { FilterRangePropTypes } from './FilterRange.types';
 
 export default function FilterRange({
+    id,
     initialValue,
     saveFilter,
 }: FilterRangePropTypes) {
@@ -26,6 +27,7 @@ export default function FilterRange({
     return (
         <S.MainContainer>
             <S.MainInput
+                id={`${id}-min`}
                 type="text"
                 value={min}
                 onChange={(e) => setMin(e.target.value)}
@@ -34,6 +36,7 @@ export default function FilterRange({
             <S.Separator>-</S.Separator>
 
             <S.MainInput
+                id={`${id}-max`}
                 type="text"
                 value={max}
                 onChange={(e) => setMax(e.target.value)}
