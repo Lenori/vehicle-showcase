@@ -3,4 +3,5 @@ export interface CardTablePropTypes {
     transmission: string;
     doors: number;
     year: number;
+    wide?: boolean;
 }

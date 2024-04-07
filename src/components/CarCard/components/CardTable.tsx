@@ -13,9 +13,10 @@ export default function CardTable({
     transmission,
     doors,
     year,
+    wide = false,
 }: CardTablePropTypes) {
     return (
-        <S.MainContainer>
+        <S.MainContainer $wide={wide}>
             <S.InfoContainer>
                 <S.Info>
                     <TbManualGearbox />

@@ -1,11 +1,46 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const MainContainer = styled.section`
+export const MainContainer = styled.section<{ $wide: boolean }>`
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
     max-width: 32rem;
+
+    ${(props) =>
+        props.$wide &&
+        css`
+            max-width: none;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-m);
+            cursor: pointer;
+            border-bottom: 0.2rem solid var(--white);
+
+            &:hover {
+                border-bottom: 0.2rem solid var(--lighter-grey);
+            }
+
+            ${CardTitle} {
+                width: 45%;
+            }
+
+            ${CardImage} {
+                max-height: 10rem;
+                width: unset;
+            }
+
+            ${CardFooter} {
+                width: 40%;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            ${CardPrice} {
+                margin-bottom: var(--spacing-s);
+            }
+        `}
 `;
 
 export const CardImage = styled.img`

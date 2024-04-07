@@ -11,9 +11,9 @@ import { CarCardPropTypes } from './CarCard.types';
 
 import CardTable from './components/CardTable';
 
-export default function CarCard({ car }: CarCardPropTypes) {
+export default function CarCard({ wide = false, car }: CarCardPropTypes) {
     return (
-        <S.MainContainer>
+        <S.MainContainer $wide={wide}>
             <S.CardImage src={defaultcarimg} alt={car.model} />
             <S.CardTitle>{`${car.make} - ${car.model}`}</S.CardTitle>
 
@@ -22,6 +22,7 @@ export default function CarCard({ car }: CarCardPropTypes) {
                 transmission={car.details.specification.transmission}
                 doors={car.details.specification.numberOfDoors}
                 year={car.year}
+                wide={wide}
             />
 
             <S.CardFooter>
