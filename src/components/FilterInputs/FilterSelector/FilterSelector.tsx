@@ -7,6 +7,7 @@ import { FilterSelectorPropTypes } from './FilterSelector.types';
 export default function FilterSelector({
     placeholder,
     data,
+    initialValue,
     saveFilter,
 }: FilterSelectorPropTypes) {
     const [inputValue, setInputValue] = useState<string>('');
@@ -33,6 +34,10 @@ export default function FilterSelector({
             selectOption(data[0]);
         }
     }, [data]);
+
+    useEffect(() => {
+        selectOption(initialValue ?? '');
+    }, []);
 
     return (
         <S.MainContainer>

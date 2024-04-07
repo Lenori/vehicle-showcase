@@ -29,6 +29,7 @@ export default function SidebarFilter() {
             <S.FilterContainer>
                 <S.FilterTitle>Make</S.FilterTitle>
                 <FilterSelector
+                    initialValue={filters.data.make}
                     data={brandArrayBuilder({
                         brands: filters.brands,
                         make: filters.data.make,
@@ -44,6 +45,7 @@ export default function SidebarFilter() {
             <S.FilterContainer>
                 <S.FilterTitle>Model</S.FilterTitle>
                 <FilterSelector
+                    initialValue={filters.data.model}
                     data={modelArrayBuilder({
                         brands: filters.brands,
                         make: filters.data.make,
@@ -58,6 +60,10 @@ export default function SidebarFilter() {
             <S.FilterContainer>
                 <S.FilterTitle>Bid range</S.FilterTitle>
                 <FilterRange
+                    initialValue={{
+                        minimumBid: filters.data.minimumBid,
+                        maximumBid: filters.data.maximumBid,
+                    }}
                     saveFilter={({ minimumBid, maximumBid }) =>
                         filters.setFilters({
                             ...filters.data,

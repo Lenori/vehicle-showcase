@@ -17,7 +17,9 @@ export default function filterUrlBuilder({
     const params: UrlParamPropType[] = [];
 
     Object.entries(filters).map(([key, value]) => {
-        params.push({ key, value });
+        if (value) {
+            params.push({ key, value });
+        }
     });
 
     const searchParams = new URLSearchParams();

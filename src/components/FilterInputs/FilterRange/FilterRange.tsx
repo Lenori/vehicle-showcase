@@ -4,7 +4,10 @@ import * as S from './FilterRange.styles';
 
 import { FilterRangePropTypes } from './FilterRange.types';
 
-export default function FilterRange({ saveFilter }: FilterRangePropTypes) {
+export default function FilterRange({
+    initialValue,
+    saveFilter,
+}: FilterRangePropTypes) {
     const [min, setMin] = useState<string | number>('');
     const [max, setMax] = useState<string | number>('');
 
@@ -14,6 +17,11 @@ export default function FilterRange({ saveFilter }: FilterRangePropTypes) {
             maximumBid: max ? Number(max) : null,
         });
     }, [min, max]);
+
+    useEffect(() => {
+        setMin(initialValue?.minimumBid ?? '');
+        setMax(initialValue?.maximumBid ?? '');
+    }, []);
 
     return (
         <S.MainContainer>
