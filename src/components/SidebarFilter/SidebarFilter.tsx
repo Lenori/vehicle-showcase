@@ -8,6 +8,7 @@ import filterUrlBuilder from 'utils/filterUrlBuilder';
 
 import FilterSelector from 'components/FilterInputs/FilterSelector/FilterSelector';
 import FilterRange from 'components/FilterInputs/FilterRange/FilterRange';
+import FilterCheckbox from 'components/FilterInputs/FilterCheckbox/FilterCheckbox';
 
 import * as S from './SidebarFilter.styles';
 
@@ -72,6 +73,20 @@ export default function SidebarFilter() {
                             ...filters.data,
                             minimumBid,
                             maximumBid,
+                        })
+                    }
+                />
+            </S.FilterContainer>
+
+            <S.FilterContainer>
+                <S.FilterTitle>Show only favourites</S.FilterTitle>
+                <FilterCheckbox
+                    id="favourite-checkbox"
+                    initialValue={filters.data.favourites}
+                    saveFilter={(value) =>
+                        filters.setFilters({
+                            ...filters.data,
+                            favourites: value,
                         })
                     }
                 />

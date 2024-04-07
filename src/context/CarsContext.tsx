@@ -13,6 +13,16 @@ interface CarsContextPropTypes {
     data: CarPropType[];
     unpaginatedCars: CarPropType[];
     setCars: (data: CarPropType[]) => void;
+    toggleCarFavourite: (id: number) => void;
+}
+
+const storageKey = 'showcase_cars_storage';
+
+function getStorageItem(): CarPropType[] {
+    const storedCars = sessionStorage.getItem(storageKey);
+    if (!storedCars) return null;
+
+    return JSON.parse(storedCars);
 }
 
 export const CarsContext = createContext({});
@@ -20,7 +30,10 @@ export const CarsContext = createContext({});
 export function CarsProvider({ children }: { children: React.ReactNode }) {
     const filters = useFilters();
 
-    const [cars, setCars] = useState<CarPropType[]>(vehiclesData);
+    const [cars, setCars] = useState<CarPropType[]>(
+        getStorageItem() || vehiclesData,
+    );
+
     const [filteredCars, setFilteredCars] = useState<CarPropType[]>(
         filterCars({
             filters: filters.data,
@@ -35,6 +48,17 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
         }),
     );
 
+    function toggleCarFavourite(id: number) {
+        const carIndex = cars.findIndex((item) => item.id === id);
+
+        if (carIndex < 0) return null;
+
+        cars[carIndex].favourite = !cars[carIndex].favourite;
+        sessionStorage.setItem(storageKey, JSON.stringify(cars));
+
+        setCars([...cars]);
+    }
+
     useEffect(() => {
         setFilteredCars(
             filterCars({
@@ -42,7 +66,7 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
                 cars,
             }),
         );
-    }, [filters.data]);
+    }, [filters.data, cars]);
 
     useEffect(() => {
         setPaginatedCars(
@@ -59,6 +83,7 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
                 data: paginatedCars,
                 unpaginatedCars: filteredCars,
                 setCars,
+                toggleCarFavourite,
             }}
         >
             {children}

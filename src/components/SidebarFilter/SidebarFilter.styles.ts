@@ -11,6 +11,7 @@ export const MainContainer = styled.section`
 export const FilterContainer = styled.section`
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     margin-bottom: var(--spacing-m);
 `;

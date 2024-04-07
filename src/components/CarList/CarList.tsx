@@ -16,7 +16,12 @@ export default function CarList() {
             <ListControls />
 
             {cars.data.map((car) => (
-                <CarCard wide key={car.id} car={car} />
+                <CarCard
+                    wide
+                    key={car.id}
+                    car={car}
+                    toggleCarFavourite={() => cars.toggleCarFavourite(car.id)}
+                />
             ))}
 
             <Pagination />

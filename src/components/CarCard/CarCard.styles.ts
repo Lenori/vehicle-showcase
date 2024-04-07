@@ -6,6 +6,7 @@ export const MainContainer = styled.section<{ $wide: boolean }>`
     flex-direction: column;
     width: 100%;
     max-width: 32rem;
+    position: relative;
 
     ${(props) =>
         props.$wide &&
@@ -41,6 +42,27 @@ export const MainContainer = styled.section<{ $wide: boolean }>`
                 margin-bottom: var(--spacing-s);
             }
         `}
+`;
+
+export const FavouriteBadge = styled.section<{ $favourite: boolean }>`
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--light-grey);
+
+    ${(props) =>
+        props.$favourite &&
+        css`
+            color: var(--main-red);
+        `}
+
+    svg {
+        font-size: 2.5rem;
+
+        &:hover {
+            color: var(--main-red);
+        }
+    }
 `;
 
 export const CardImage = styled.img`

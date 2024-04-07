@@ -9,4 +9,5 @@ export default css`
     --white: #ffffff;
     --main-yellow: #e3dd25;
     --dark-yellow: #4a4911;
+    --main-red: #e22146;
 `;

@@ -27,7 +27,13 @@ export default function PopularAuctions({ count }: PopularAuctionsPropTypes) {
 
             <S.PopularContainer>
                 {popularItems.map((car) => (
-                    <CarCard key={car.id} car={car} />
+                    <CarCard
+                        key={car.id}
+                        car={car}
+                        toggleCarFavourite={() =>
+                            cars.toggleCarFavourite(car.id)
+                        }
+                    />
                 ))}
             </S.PopularContainer>
         </S.MainContainer>
