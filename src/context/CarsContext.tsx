@@ -7,9 +7,11 @@ import type { CarPropType } from 'types/cars.types';
 import vehiclesData from 'data/vehiclesDataset.json';
 
 import filterCars from 'utils/filterCars';
+import paginateCars from 'utils/paginateCars';
 
 interface CarsContextPropTypes {
     data: CarPropType[];
+    unpaginatedCars: CarPropType[];
     setCars: (data: CarPropType[]) => void;
 }
 
@@ -26,6 +28,13 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
         }),
     );
 
+    const [paginatedCars, setPaginatedCars] = useState<CarPropType[]>(
+        paginateCars({
+            filters: filters.data,
+            cars: filteredCars,
+        }),
+    );
+
     useEffect(() => {
         setFilteredCars(
             filterCars({
@@ -35,8 +44,23 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
         );
     }, [filters.data]);
 
+    useEffect(() => {
+        setPaginatedCars(
+            paginateCars({
+                filters: filters.data,
+                cars: filteredCars,
+            }),
+        );
+    }, [filteredCars]);
+
     return (
-        <CarsContext.Provider value={{ data: filteredCars, setCars }}>
+        <CarsContext.Provider
+            value={{
+                data: paginatedCars,
+                unpaginatedCars: filteredCars,
+                setCars,
+            }}
+        >
             {children}
         </CarsContext.Provider>
     );
