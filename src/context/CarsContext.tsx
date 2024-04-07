@@ -1,8 +1,12 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+
+import { useFilters } from './FiltersContext';
 
 import type { CarPropType } from 'types/cars.types';
 
 import vehiclesData from 'data/vehiclesDataset.json';
+
+import filterCars from 'utils/filterCars';
 
 interface CarsContextPropTypes {
     data: CarPropType[];
@@ -12,10 +16,22 @@ interface CarsContextPropTypes {
 export const CarsContext = createContext({});
 
 export function CarsProvider({ children }: { children: React.ReactNode }) {
+    const filters = useFilters();
+
     const [cars, setCars] = useState<CarPropType[]>(vehiclesData);
+    const [filteredCars, setFilteredCars] = useState<CarPropType[]>(cars);
+
+    useEffect(() => {
+        setFilteredCars(
+            filterCars({
+                filters: filters.data,
+                cars,
+            }),
+        );
+    }, [filters.data]);
 
     return (
-        <CarsContext.Provider value={{ data: cars, setCars }}>
+        <CarsContext.Provider value={{ data: filteredCars, setCars }}>
             {children}
         </CarsContext.Provider>
     );

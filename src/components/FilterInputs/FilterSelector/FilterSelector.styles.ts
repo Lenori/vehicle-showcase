@@ -25,6 +25,7 @@ export const OptionsContainer = styled.section`
     border: 0.1rem solid var(--light-grey);
     border-radius: 0.8rem;
     width: 100%;
+    z-index: 1000;
 `;
 
 export const Option = styled.p`
