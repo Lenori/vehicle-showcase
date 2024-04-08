@@ -5,7 +5,6 @@ export const MainContainer = styled.section`
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
-    padding: var(--spacing-m);
 `;
 
 export const HeaderInfo = styled.section`

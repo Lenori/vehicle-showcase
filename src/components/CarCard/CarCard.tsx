@@ -25,7 +25,7 @@ export default function CarCard({
                 <FaHeart onClick={() => toggleCarFavourite()} />
             </S.FavouriteBadge>
 
-            <Link to={`product/${car.id}/${car.model}`}>
+            <Link to={`/product/${car.id}/${car.model}`}>
                 <S.CardImage src={defaultcarimg} alt={car.model} />
                 <S.CardTitle>{`${car.make} - ${car.model}`}</S.CardTitle>
 

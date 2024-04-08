@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import defaultcarimg from 'images/default-car-picture.jpg';
 
@@ -15,6 +15,10 @@ import * as S from './CarPage.styles';
 import { CarPagePropTypes } from './CarPage.types';
 
 export default function CarPage({ car, toggleCarFavourite }: CarPagePropTypes) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <S.MainContainer>
             <S.HeaderInfo>

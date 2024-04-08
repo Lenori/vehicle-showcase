@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import Header from 'components/Header/Header';
 import SidebarFilter from 'components/SidebarFilter/SidebarFilter';
 import CarList from 'components/CarList/CarList';
 
@@ -12,6 +13,7 @@ export default function Showcase() {
 
     return (
         <S.MainContainer>
+            <Header />
             <S.ContentContainer>
                 <SidebarFilter />
                 <CarList />
