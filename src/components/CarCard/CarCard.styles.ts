@@ -5,8 +5,16 @@ export const MainContainer = styled.section<{ $wide: boolean }>`
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
-    max-width: 32rem;
     position: relative;
+
+    a {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        max-width: 32rem;
+        color: var(--dark-grey);
+    }
 
     ${(props) =>
         props.$wide &&
@@ -18,6 +26,13 @@ export const MainContainer = styled.section<{ $wide: boolean }>`
             margin-bottom: var(--spacing-m);
             cursor: pointer;
             border-bottom: 0.2rem solid var(--white);
+
+            a {
+                max-width: none;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
 
             &:hover {
                 border-bottom: 0.2rem solid var(--lighter-grey);
@@ -49,6 +64,7 @@ export const FavouriteBadge = styled.section<{ $favourite: boolean }>`
     top: 0;
     left: 0;
     color: var(--light-grey);
+    cursor: pointer;
 
     ${(props) =>
         props.$favourite &&

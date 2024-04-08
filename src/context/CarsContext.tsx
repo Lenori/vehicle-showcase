@@ -14,6 +14,7 @@ interface CarsContextPropTypes {
     unpaginatedCars: CarPropType[];
     setCars: (data: CarPropType[]) => void;
     toggleCarFavourite: (id: number) => void;
+    carById: (id: number) => CarPropType;
 }
 
 const storageKey = 'showcase_cars_storage';
@@ -59,6 +60,12 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
         setCars([...cars]);
     }
 
+    function carById(id: number) {
+        const carIndex = cars.findIndex((item) => item.id === id);
+
+        return cars[carIndex];
+    }
+
     useEffect(() => {
         setFilteredCars(
             filterCars({
@@ -84,6 +91,7 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
                 unpaginatedCars: filteredCars,
                 setCars,
                 toggleCarFavourite,
+                carById,
             }}
         >
             {children}
