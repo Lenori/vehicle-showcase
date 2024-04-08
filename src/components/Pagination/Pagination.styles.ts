@@ -24,3 +24,8 @@ export const Page = styled.p<{ $selected: boolean }>`
             font-weight: bold;
         `}
 `;
+
+export const Dots = styled.span`
+    font-weight: bold;
+    font-size: 1.5rem;
+`;
