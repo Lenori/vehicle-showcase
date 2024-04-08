@@ -9,6 +9,7 @@ interface FiltersContextPropTypes {
     data: FiltersPropType;
     brands: BrandsPropType[];
     setFilters: (data: FiltersPropType) => void;
+    clearFilters: () => void;
 }
 
 export const FiltersContext = createContext({});
@@ -30,8 +31,25 @@ export function FiltersProvider({ children }: { children: React.ReactNode }) {
 
     const brands: BrandsPropType[] = brandsData;
 
+    function clearFilters() {
+        const initialFilters: FiltersPropType = {
+            make: null,
+            model: null,
+            minimumBid: null,
+            maximumBid: null,
+            favourites: false,
+            itemsPerPage: filters.itemsPerPage,
+            page: filters.page,
+            orderBy: filters.orderBy,
+        };
+
+        setFilters({ ...initialFilters });
+    }
+
     return (
-        <FiltersContext.Provider value={{ data: filters, brands, setFilters }}>
+        <FiltersContext.Provider
+            value={{ data: filters, brands, setFilters, clearFilters }}
+        >
             {children}
         </FiltersContext.Provider>
     );

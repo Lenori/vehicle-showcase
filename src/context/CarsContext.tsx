@@ -66,14 +66,16 @@ export function CarsProvider({ children }: { children: React.ReactNode }) {
                 cars,
             }),
         );
+    }, [filters.data, cars]);
 
+    useEffect(() => {
         setPaginatedCars(
             paginateCars({
                 filters: filters.data,
                 cars: filteredCars,
             }),
         );
-    }, [filters.data, cars]);
+    }, [filters.data, filteredCars]);
 
     return (
         <CarsContext.Provider

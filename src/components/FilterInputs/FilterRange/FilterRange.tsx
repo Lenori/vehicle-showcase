@@ -22,7 +22,7 @@ export default function FilterRange({
     useEffect(() => {
         setMin(initialValue?.minimumBid ?? '');
         setMax(initialValue?.maximumBid ?? '');
-    }, []);
+    }, [initialValue]);
 
     return (
         <S.MainContainer>

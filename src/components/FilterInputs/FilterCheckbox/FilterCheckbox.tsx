@@ -19,7 +19,7 @@ export default function FilterCheckbox({
 
     useEffect(() => {
         editInput(initialValue);
-    }, []);
+    }, [initialValue]);
 
     return (
         <S.MainContainer>

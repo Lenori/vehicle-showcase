@@ -11,21 +11,12 @@ export default function FilterSelector({
     initialValue,
     saveFilter,
 }: FilterSelectorPropTypes) {
-    const [inputValue, setInputValue] = useState<string>('');
+    const [openOptions, setOpenOptions] = useState<boolean>(false);
     const [filterValue, setFilterValue] = useState<string | null>(null);
-
-    function editInput(value: string) {
-        setFilterValue(null);
-        setInputValue(value);
-
-        if (!value) {
-            saveFilter?.(null);
-        }
-    }
 
     function selectOption(option: string) {
         setFilterValue(option);
-        setInputValue(option);
+        setOpenOptions(false);
 
         saveFilter?.(option);
     }
@@ -38,19 +29,19 @@ export default function FilterSelector({
 
     useEffect(() => {
         selectOption(initialValue ?? '');
-    }, []);
+    }, [initialValue]);
 
     return (
         <S.MainContainer>
             <S.MainInput
                 id={id}
                 type="text"
-                value={inputValue}
-                onChange={(e) => editInput(e.target.value)}
+                value={filterValue ?? ''}
+                onClick={() => setOpenOptions(true)}
                 placeholder={placeholder}
             />
 
-            {inputValue && !filterValue && (
+            {openOptions && (
                 <S.OptionsContainer>
                     {data.map((option) => (
                         <S.Option

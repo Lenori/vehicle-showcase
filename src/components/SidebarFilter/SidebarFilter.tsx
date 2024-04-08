@@ -34,12 +34,15 @@ export default function SidebarFilter() {
                     initialValue={filters.data.make}
                     data={brandArrayBuilder({
                         brands: filters.brands,
-                        make: filters.data.make,
-                        model: filters.data.model,
                     })}
-                    placeholder="e.g. Ford"
+                    placeholder="Select an option"
                     saveFilter={(value) =>
-                        filters.setFilters({ ...filters.data, make: value })
+                        filters.setFilters({
+                            ...filters.data,
+                            make: value,
+                            model: null,
+                            page: 1,
+                        })
                     }
                 />
             </S.FilterContainer>
@@ -53,9 +56,13 @@ export default function SidebarFilter() {
                         brands: filters.brands,
                         make: filters.data.make,
                     })}
-                    placeholder="e.g. Focus"
+                    placeholder="Select an option"
                     saveFilter={(value) =>
-                        filters.setFilters({ ...filters.data, model: value })
+                        filters.setFilters({
+                            ...filters.data,
+                            model: value,
+                            page: 1,
+                        })
                     }
                 />
             </S.FilterContainer>
@@ -73,6 +80,7 @@ export default function SidebarFilter() {
                             ...filters.data,
                             minimumBid,
                             maximumBid,
+                            page: 1,
                         })
                     }
                 />
@@ -91,6 +99,10 @@ export default function SidebarFilter() {
                     }
                 />
             </S.FilterContainer>
+
+            <S.ClearFilters onClick={() => filters.clearFilters()}>
+                Clear filters
+            </S.ClearFilters>
         </S.MainContainer>
     );
 }

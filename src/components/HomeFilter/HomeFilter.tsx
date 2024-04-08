@@ -25,12 +25,14 @@ export default function HomeFilter() {
                     id="make-selector"
                     data={brandArrayBuilder({
                         brands: filters.brands,
-                        make: filters.data.make,
-                        model: filters.data.model,
                     })}
-                    placeholder="e.g. Ford"
+                    placeholder="Select an option"
                     saveFilter={(value) =>
-                        filters.setFilters({ ...filters.data, make: value })
+                        filters.setFilters({
+                            ...filters.data,
+                            make: value,
+                            model: null,
+                        })
                     }
                 />
             </S.FilterContainer>
@@ -43,7 +45,7 @@ export default function HomeFilter() {
                         brands: filters.brands,
                         make: filters.data.make,
                     })}
-                    placeholder="e.g. Focus"
+                    placeholder="Select an option"
                     saveFilter={(value) =>
                         filters.setFilters({ ...filters.data, model: value })
                     }

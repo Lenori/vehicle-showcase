@@ -22,3 +22,9 @@ export const FilterTitle = styled.p`
     font-weight: bold;
     font-size: 1.2rem;
 `;
+
+export const ClearFilters = styled.p`
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+`;
