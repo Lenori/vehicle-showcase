@@ -5,7 +5,7 @@ import defaultcarimg from 'images/default-car-picture.jpg';
 import { FaHeart, FaClock } from 'react-icons/fa';
 
 import valueToEuro from 'utils/valueToEuro';
-import { countDown } from 'utils/countDown';
+import countDown from 'utils/countDown';
 
 import CardTable from './components/CardTable/CardTable';
 import InfoTable from './components/InfoTable/InfoTable';

@@ -95,7 +95,7 @@ export const CardFooter = styled.section`
     align-items: center;
 `;
 
-export const CardPricing = styled.section`
+export const CardPricing = styled.p`
     display: flex;
     justify-content: center;
     align-items: flex-start;

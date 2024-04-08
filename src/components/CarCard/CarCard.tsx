@@ -6,7 +6,7 @@ import defaultcarimg from 'images/default-car-picture.jpg';
 import { FaHeart, FaClock } from 'react-icons/fa';
 
 import valueToEuro from 'utils/valueToEuro';
-import { countDown } from 'utils/countDown';
+import countDown from 'utils/countDown';
 
 import * as S from './CarCard.styles';
 
@@ -22,7 +22,10 @@ export default function CarCard({
     return (
         <S.MainContainer $wide={wide}>
             <S.FavouriteBadge $favourite={car.favourite}>
-                <FaHeart onClick={() => toggleCarFavourite()} />
+                <FaHeart
+                    data-testid="favourite-toggler"
+                    onClick={() => toggleCarFavourite()}
+                />
             </S.FavouriteBadge>
 
             <Link to={`/product/${car.id}/${car.model}`}>

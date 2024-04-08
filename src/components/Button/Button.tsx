@@ -15,8 +15,11 @@ export default function Button({ link, Icon, text }: ButtonPropTypes) {
     }
 
     return (
-        <S.MainContainer onClick={() => clickHandler()}>
-            {<Icon />} {text}
+        <S.MainContainer
+            data-testid="button-container"
+            onClick={() => clickHandler()}
+        >
+            {<Icon data-testid="button-icon" />} {text}
         </S.MainContainer>
     );
 }

@@ -15,7 +15,7 @@ function convertToIso(dateString: string): string {
     return date.toISOString();
 }
 
-export function countDown(date: string) {
+export default function countDown(date: string) {
     const targetDate = moment(convertToIso(date));
 
     const now = moment();
