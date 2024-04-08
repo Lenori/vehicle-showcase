@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useCars } from 'context/CarsContext';
 
+import EmptyState from 'components/EmptyState/EmptyState';
 import ListControls from 'components/ListControls/ListControls';
 import CarCard from 'components/CarCard/CarCard';
 import Pagination from 'components/Pagination/Pagination';
@@ -14,6 +15,8 @@ export default function CarList() {
     return (
         <S.MainContainer>
             <ListControls />
+
+            {cars.data.length == 0 && <EmptyState />}
 
             {cars.data.map((car) => (
                 <CarCard
