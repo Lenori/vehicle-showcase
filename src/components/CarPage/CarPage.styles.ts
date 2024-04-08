@@ -60,20 +60,15 @@ export const CardTitle = styled.p`
 
 export const CardPricing = styled.section`
     display: flex;
-    width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: column;
-`;
-
-export const CardPrice = styled.p`
-    margin: 0;
+    background-color: var(--main-yellow);
+    padding: var(--spacing-s);
     font-size: 1.5rem;
+    color: var(--dark-yellow);
     font-weight: bold;
-`;
 
-export const CardCountdown = styled.p`
-    font-weight: bold;
-    margin: 0;
-    font-size: 1.5rem;
+    svg {
+        margin: 0 var(--spacing-s);
+    }
 `;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import defaultcarimg from 'images/default-car-picture.jpg';
 
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaClock } from 'react-icons/fa';
 
 import valueToEuro from 'utils/valueToEuro';
 import { countDown } from 'utils/countDown';
@@ -38,10 +38,11 @@ export default function CarCard({
                 />
 
                 <S.CardFooter>
-                    <S.CardPrice>{valueToEuro(car.startingBid)}</S.CardPrice>
-                    <S.CardCountdown>
+                    <S.CardPricing>
+                        {valueToEuro(car.startingBid)}
+                        <FaClock />
                         {countDown(car.auctionDateTime)}
-                    </S.CardCountdown>
+                    </S.CardPricing>
                 </S.CardFooter>
             </Link>
         </S.MainContainer>

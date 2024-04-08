@@ -39,6 +39,7 @@ export default function FilterSelector({
                 value={filterValue ?? ''}
                 onClick={() => setOpenOptions(true)}
                 placeholder={placeholder}
+                readOnly
             />
 
             {openOptions && (

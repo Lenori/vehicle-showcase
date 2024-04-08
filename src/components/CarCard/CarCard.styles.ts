@@ -52,10 +52,6 @@ export const MainContainer = styled.section<{ $wide: boolean }>`
                 flex-direction: column;
                 align-items: flex-end;
             }
-
-            ${CardPrice} {
-                margin-bottom: var(--spacing-s);
-            }
         `}
 `;
 
@@ -99,14 +95,18 @@ export const CardFooter = styled.section`
     align-items: center;
 `;
 
-export const CardPrice = styled.p`
-    margin: 0;
+export const CardPricing = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--main-yellow);
+    padding: var(--spacing-s);
     font-size: 1.5rem;
+    color: var(--dark-yellow);
     font-weight: bold;
-`;
+    width: 100%;
 
-export const CardCountdown = styled.p`
-    font-weight: bold;
-    margin: 0;
-    font-size: 1.5rem;
+    svg {
+        margin: 0 var(--spacing-s);
+    }
 `;

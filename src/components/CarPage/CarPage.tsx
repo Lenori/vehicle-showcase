@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import defaultcarimg from 'images/default-car-picture.jpg';
 
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaClock } from 'react-icons/fa';
 
 import valueToEuro from 'utils/valueToEuro';
 import { countDown } from 'utils/countDown';
@@ -40,12 +40,9 @@ export default function CarPage({ car, toggleCarFavourite }: CarPagePropTypes) {
                     />
 
                     <S.CardPricing>
-                        <S.CardPrice>
-                            {valueToEuro(car.startingBid)}
-                        </S.CardPrice>
-                        <S.CardCountdown>
-                            {countDown(car.auctionDateTime)}
-                        </S.CardCountdown>
+                        {valueToEuro(car.startingBid)}
+                        <FaClock />
+                        {countDown(car.auctionDateTime)}
                     </S.CardPricing>
 
                     <InfoTable car={car} />
